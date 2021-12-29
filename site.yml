@@ -1,0 +1,7 @@
+- name: install docker 
+  hosts: webservers
+  become: true
+  roles:
+    - docker
+  tags: webservers
+  
