@@ -1,38 +1,46 @@
-Role Name
-=========
+# Docker on Ubuntu 18.04
 
-A brief description of the role goes here.
+This playbook will install Docker an Ubuntu 18.04 machine, as explained in the guide on
+[How to Use Ansible to Install and Set Up Docker on Ubuntu 18.04](https://www.digitalocean.com/community/tutorials/how-to-use-ansible-to-install-and-set-up-docker-on-ubuntu-18-04).
+A number of containers will be created with the options specified in the `vars/default.yml` variable file.
 
-Requirements
-------------
+## Settings
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+- `create_containers`: number of containers to create.
+- `default_container_name`: default name for new containers.
+- `default_container_image`: default image for new containers.
+- `default_container_command`: default command to run on new containers.
 
-Role Variables
---------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+## Running this Playbook
 
-Dependencies
-------------
+Quick Steps:
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+### 1. Obtain the playbook
+```shell
+git clone https://github.com/do-community/ansible-playbooks.git
+cd ansible-playbooks/docker_ubuntu1804
+```
 
-Example Playbook
-----------------
+### 2. Customize Options
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
+```shell
+nano vars/default.yml
+```
 
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
+```yml
+#vars/default.yml
+---
+create_containers: 4
+default_container_name: docker
+default_container_image: ubuntu
+default_container_command: sleep 1d
+```
 
-License
--------
+### 3. Run the Playbook
 
-BSD
+```command
+ansible-playbook -l [target] -i [inventory file] -u [remote user] playbook.yml
+```
 
-Author Information
-------------------
-
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+For more information on how to run this Ansible setup, please check this guide: [How to Use Ansible to Install and Set Up Docker on Ubuntu 18.04](https://www.digitalocean.com/community/tutorials/how-to-use-ansible-to-install-and-set-up-docker-on-ubuntu-18-04).
