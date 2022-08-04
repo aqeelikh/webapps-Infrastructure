@@ -10,9 +10,9 @@ terraform {
 variable "do_token" {}
 
 provider "digitalocean" {
-  token = "dop_v1_ad707c55b8d654eee19a76fb4c3c2fea68df470ade8d8a41a49a64b56c365689"
+  token = ""
 }
 
 data "digitalocean_ssh_key" "terraform" {
-  name = "All Might key"
+  name = ""
 }
