@@ -1,7 +1,42 @@
-- name: install docker 
-  hosts: webservers
+- name: Install Docker 
+  hosts: all
   become: true
   roles:
     - docker
-  tags: webservers
-  
+  tags: docker
+
+# - name: Install Nginx
+#   hosts: proxy
+#   become: true
+#   roles:
+#     - nginx
+#   tags: nginx
+
+# - name: Install mongodb
+#   hosts: mongodb
+#   become: true
+#   roles:
+#     - mongodb
+#   tags: mongodb
+
+# - name: Install k8s
+#   hosts: k8s
+#   become: true
+#   roles:
+#     - k8s
+#   tags: k8s
+
+# - name: Install keycloak
+#   hosts: keycloak
+#   become: true
+#   roles:
+#     - keycloak
+#   tags: keycloak
+
+# - name: Install supabase
+#   hosts: supabase
+#   become: true
+#   roles:
+#     - supabase
+#   tags: supabase
+
