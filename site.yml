@@ -1,3 +1,10 @@
+# - name: Base Role
+#   host: all
+#   become: true
+#   roles: 
+#     - base
+#   tags: base
+
 - name: Install Docker 
   hosts: all
   become: true
@@ -5,12 +12,12 @@
     - docker
   tags: docker
 
-# - name: Install Nginx
-#   hosts: proxy
-#   become: true
-#   roles:
-#     - nginx
-#   tags: nginx
+- name: Install Nginx
+  hosts: proxy
+  become: true
+  roles:
+    - nginx
+  tags: nginx
 
 # - name: Install mongodb
 #   hosts: mongodb

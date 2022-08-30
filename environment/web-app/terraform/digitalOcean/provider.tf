@@ -1,7 +1,7 @@
 terraform {
   required_providers {
     digitalocean = {
-      source = "digitalocean/digitalocean"
+      source  = "digitalocean/digitalocean"
       version = "~> 2.0"
     }
   }
@@ -10,9 +10,9 @@ terraform {
 variable "do_token" {}
 
 provider "digitalocean" {
-  token = ""
+  token = var.do_token
 }
 
 data "digitalocean_ssh_key" "terraform" {
-  name = ""
+  name = "All Might key"
 }
